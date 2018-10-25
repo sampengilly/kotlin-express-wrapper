@@ -1,5 +1,7 @@
 package express
 
+import kotlinx.serialization.Mapper
+import kotlinx.serialization.json.JSON
 import kotlin.js.Json
 
 @JsModule("express")
@@ -12,14 +14,15 @@ external class Express {
 open external class JsRequest {
     val baseUrl: String
     val body: Any
+    val headers: Json
 
     @JsName("query")
-    val queryJson: Json
+    val queryJsonString: String
 }
 
 class Request : JsRequest() {
-    val query: Map<String, String>
-        get() = emptyMap()
+    val query: Map<String, Any>
+        get() = JSON.parse(queryJsonString)
 }
 
 external class Response {

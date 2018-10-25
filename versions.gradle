@@ -2,4 +2,6 @@ ext {
     // External dependencies
     kotlin_version = '1.2.71'
     node_plugin_version = '1.2.0'
+    bintray_plugin_version = '1.8.4'
+    kotlinx_serialization_version = '0.6.2'
 }
