@@ -1,0 +1,19 @@
+apply plugin: 'com.moowork.node'
+
+applyKotlinJs()
+
+dependencies {
+    compile project(":lib")
+}
+
+node {
+    version = "6.11.0"
+    download = true
+}
+
+task runServer(type: NodeTask) {
+    group = "Run"
+    dependsOn 'npmInstall'
+    dependsOn 'build'
+    script = file(outputFile)
+}

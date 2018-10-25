@@ -1,0 +1,5 @@
+ext {
+    // External dependencies
+    kotlin_version = '1.2.71'
+    node_plugin_version = '1.2.0'
+}
